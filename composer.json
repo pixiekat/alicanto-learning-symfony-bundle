@@ -1,0 +1,26 @@
+{
+  "name": "pixiekat/alicanto-learning-symfony-bundle",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "Pixiekat\\AlicantoLearning\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pixiekat\\AlicantoLearning\\Tests\\": "tests/"
+    }
+  },
+  "authors": [{
+      "name": "Katie Elizabeth",
+      "email": "katie@pixiekitten.net"
+    }
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^8.3"
+  },
+  "require-dev": {}
+}
