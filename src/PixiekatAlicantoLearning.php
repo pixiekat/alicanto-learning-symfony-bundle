@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace Pixiekat\AlicantoLearning;
 
+use Pixiekat\AlicantoLearning\DependencyInjection\AlicantoLearningExtension;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Pixiekat\AlicantoLearning\DependencyInjection\Extension;
