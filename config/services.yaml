@@ -1,0 +1,15 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Pixiekat\AlicantoLearning\:
+    resource: '../src/*'
+    exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
+
+  Pixiekat\AlicantoLearning\Services\:
+    resource: '../src/Services/*'
+    public: true
+    tags: ['controller.service_arguments']
