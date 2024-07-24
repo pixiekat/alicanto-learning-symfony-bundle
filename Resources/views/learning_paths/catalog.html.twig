@@ -1,3 +1,46 @@
-{% block content %}
-  <h1>Learning Paths</h1>
+{% extends 'base.html.twig' %}
+
+{% block title %}Alicanto Learning Catalog{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row align-items-md-center">
+      <div class="col-12 col-md-6">
+        <h1>Learning Path Catalog</h1>
+      </div>
+      <div class="col-12 col-md-6">
+        <a class="btn btn-primary float-right" href="{{ path('alicanto_learning_learning_path_add') }}">Create Learning Path</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">VIsibility</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for learning_path in learning_paths %}
+              <tr>
+                <td>
+                  <a href="{{ path('alicanto_learning_learning_path_view', {id: learning_path.id}) }}">{{ learning_path.getName }}</a>
+                </td>
+                <td>{{ learning_path.getDescription }}</td>
+                <td>{{ learning_path.getVisibilityLabel }}</td>
+                <td>
+                  <a href="{{ path('alicanto_learning_learning_path_view', {id: learning_path.id}) }}" class="btn btn-primary">View</a>
+                  <a href="{{ path('alicanto_learning_learning_path_edit', {id: learning_path.id}) }}" class="btn btn-secondary">Edit</a>
+                  <a href="{{ path('alicanto_learning_learning_path_delete', {id: learning_path.id}) }}" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock %}

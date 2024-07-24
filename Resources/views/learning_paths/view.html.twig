@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alicanto Learning Catalog{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Learning Path: {{ learning_path.getName }}</h1>
+        {% if learning_path.getDescription is not empty %}
+          <p>{{ learning_path.getDescription }}</p>
+        {% endif %}
+        <p>Visibility: {{ learning_path.getVisibilityLabel }}</p>
+        {% if learning_path.getObjectives is not empty %}
+          <p>{{ learning_path.getObjectives }}</p>
+        {% endif %}
+        <a href="{{ path('alicanto_learning_course_catalog') }}" class="btn btn-secondary">Catalog</a>
+        <a href="{{ path('alicanto_learning_learning_path_edit', {id: learning_path.id}) }}" class="btn btn-secondary">Edit</a>
+        <a href="{{ path('alicanto_learning_learning_path_delete', {id: learning_path.id}) }}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

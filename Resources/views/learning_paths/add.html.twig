@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alicanto Learning Add Learning Path{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row align-items-md-center">
+      <div class="col-12">
+        <h1>Learning Path Add</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        {{ form_start(form, {'attr': {'formnovalidate': 'formnovalidate'}}) }}
+          {{ form_errors(form) }}
+          {{ form_widget(form.name) }}
+          {{ form_widget(form.description) }}
+          {{ form_widget(form.visibility) }}
+          {{ form_widget(form.objectives) }}
+          <div id="course-collection">
+            {{ form_widget(form.courses) }}
+          </div>
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var $collectionHolder = $('#course-collection');
+      var $prototypeHolder = $('#learning_path_form_courses_course');
+
+      // Initialize index
+      var index = $collectionHolder.find(':input').length;
+
+      // add a link to add new item
+      var $addLink = $('<a href="#" class="add_item">Add a course</a>');
+      $collectionHolder.append($addLink);
+
+      $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+      $addLink.on('click', function(e) {
+        e.preventDefault();
+
+        // ... logic to add a new form based on the prototype
+        addForm($collectionHolder, $prototypeHolder, $(this).parent());
+      });
+
+      // ... logic to handle item removal
+    });
+
+    function addForm($collectionHolder, $prototypeHolder, $newLinkLi) {
+      var prototype = $prototypeHolder.data('prototype');
+      // get the new index
+      var index = $collectionHolder.data('index');
+
+      // Replace '__name__' in the prototype's HTML to
+      // be a valid index
+      var newForm = prototype.replace(/__name__/g, index);
+
+      // Increase the index with one for the next item
+      index++;
+
+      // Display the form in the page in an li, before the "Add a course" link
+      var $newFormLi = $('<div></div>').append(newForm);
+      $newLinkLi.before($newFormLi);
+    };
+  </script>
+{% endblock %}
