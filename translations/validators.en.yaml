@@ -1,0 +1,6 @@
+learning_path:
+  name:
+    not_blank: "You must enter a name for this learning path."
+  visibility:
+    invalid_choice: "You must select a valid visibility for this learning path."
+    not_blank: "You must select a visibility for this learning path."

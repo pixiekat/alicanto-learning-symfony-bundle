@@ -1,0 +1,6 @@
+learning_path:
+  created: "The learning path (%name%) has successfully been created."
+  deleted: "The learning path (%name%) has successfully been deleted."
+  prompts:
+    delete: "Are you sure you want to delete the learning path '%name%'?"
+  updated: "The learning path (%name%) has successfully been updated."

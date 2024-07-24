@@ -13,3 +13,6 @@ services:
     resource: '../src/Services/*'
     public: true
     tags: ['controller.service_arguments']
+
+  Pixiekat\AlicantoLearning\Services\TranslationLoader:
+    arguments: ['../translations']
